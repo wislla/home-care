@@ -11,6 +11,20 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ScheduleComponent } from './components/schedule/schedule.component'; 
 
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import timeGridPlugin from '@fullcalendar/timegrid'
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin
+import listPlugin from '@fullcalendar/list';
+
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin,
+  timeGridPlugin,
+  listPlugin
+]);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +39,9 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
     MatToolbarModule,
     MatIconModule,
     MatTabsModule,
+    FullCalendarModule,
+    
+   
     
   ],
   providers: [],
