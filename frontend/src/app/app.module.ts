@@ -16,7 +16,11 @@ import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 import listPlugin from '@fullcalendar/list';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './components/home/dialog/dialog.component'
 
+
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -29,7 +33,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   declarations: [
     AppComponent,
     HomeComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatIconModule,
     MatTabsModule,
     FullCalendarModule,
+    MatDialogModule,
+    MatFormFieldModule,
     
    
     

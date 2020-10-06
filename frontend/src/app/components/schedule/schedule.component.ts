@@ -11,16 +11,16 @@ export class ScheduleComponent implements OnInit {
 
   calendarOptions: CalendarOptions = {
 
-    timeZone: 'America/Bahia',
+    timeZone: 'America/Fortaleza',
     locale: ptLocale,   
     initialView: 'dayGridWeek',
 
     views: {
-      listDay: { buttonText: 'Lista Dia' },
-      listWeek: { buttonText: 'Lista Semana' },
+      
+      listWeek: { buttonText: 'Lista' },
     },
     headerToolbar: {
-      left: 'dayGridMonth,dayGridWeek,listWeek,listDay',
+      left: 'dayGridMonth,dayGridWeek,listWeek',
       center: 'title',
       right: 'prevYear,prev,next,nextYear'
     },
@@ -32,7 +32,8 @@ export class ScheduleComponent implements OnInit {
         editable: true,
       },
         { 
-        title: 'Wislla Nuânska', 
+        title: 'Wislla Nuânska',
+        //url: 'www.google.com', 
         start: '2020-10-06T07:30:00Z', 
         end: '2020-10-06T08:30:00Z', 
         //editable: true,
