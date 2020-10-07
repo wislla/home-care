@@ -10,7 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatTabsModule} from '@angular/material/tabs';
 import { ScheduleComponent } from './components/schedule/schedule.component'; 
-
+import {MatGridListModule} from '@angular/material/grid-list';
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import timeGridPlugin from '@fullcalendar/timegrid'
@@ -18,9 +18,15 @@ import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 import listPlugin from '@fullcalendar/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/home/dialog/dialog.component'
-
-
+import {MatInputModule} from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatDatepickerModule} from '@angular/material/datepicker'; 
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import{MatSelectModule} from '@angular/material/select'; 
+import{MatCheckboxModule} from '@angular/material/checkbox'; 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -47,8 +53,16 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FullCalendarModule,
     MatDialogModule,
     MatFormFieldModule,
-    
-   
+    MatInputModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    FlexLayoutModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    MatSelectModule,
+    MatCheckboxModule,
     
   ],
   providers: [],

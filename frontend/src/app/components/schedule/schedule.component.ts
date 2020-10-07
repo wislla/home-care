@@ -22,7 +22,7 @@ export class ScheduleComponent implements OnInit {
     headerToolbar: {
       left: 'dayGridMonth,dayGridWeek,listWeek',
       center: 'title',
-      right: 'prevYear,prev,next,nextYear'
+      right: 'prev,next'
     },
     events: [
       { 
