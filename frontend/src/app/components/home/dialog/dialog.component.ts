@@ -15,13 +15,8 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
   styleUrls: ['./dialog.component.css'],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}},
-    // The locale would typically be provided on the root module of your application. We do it at
-    // the component level here, due to limitations of our example generation script.
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
 
-    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
-    // `MatMomentDateModule` in your applications root module. We provide it at the component level
-    // here, due to limitations of our example generation script.
     {
       provide: DateAdapter,
       useClass: MomentDateAdapter,
@@ -45,7 +40,20 @@ export class DialogComponent implements OnInit {
     }
   ngOnInit(): void {
     this.form = this.fb.group({
-     nome: ['', Validators.required]
+     nome: ['', Validators.required],
+     rg: [''],
+     cpf: [''],
+     dt_nascimento: [''],
+     telefone: ['', Validators.required],
+     convenio: [''],
+     num_carteira: [''],
+     endereco: ['', Validators.required],
+     ponto_ref: ['', Validators.required],
+     exames: [''],
+     dt_coleta: ['', Validators.required],
+     obs: [''],
+     valor_total: [''],
+     recebido: [''],
     })
   }
 

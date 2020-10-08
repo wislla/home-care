@@ -27,7 +27,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import{MatSelectModule} from '@angular/material/select'; 
 import{MatCheckboxModule} from '@angular/material/checkbox'; 
-
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatExpansionModule} from '@angular/material/expansion'; 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin,
@@ -63,6 +64,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatMomentDateModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatSidenavModule,
+    MatExpansionModule,
     
   ],
   providers: [],

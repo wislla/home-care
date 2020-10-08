@@ -1,100 +1,146 @@
 
+<h1 mat-dialog-title>
+   <mat-icon>today</mat-icon>  Cadastro de Coleta 
+</h1>
 
-<h1 mat-dialog-title> <mat-icon>today</mat-icon>  Cadastro de Coleta </h1>
 <div mat-dialog-content>
 
-  
   <form class="" [formGroup]="form" >
 
-  
-  <mat-form-field class="form-full"  >
-      <mat-label>Nome:</mat-label>
-      <input matInput formControlName="nome" name="nome">
-  </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-around center" > 
+
+      <mat-form-field class="form-full" >
+          <mat-label>Nome:</mat-label>
+          <input matInput formControlName="nome" name="nome">
+      </mat-form-field>
+
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-around center" > 
+
+      <mat-form-field       
+        fxFlex="0 1 calc(25% - 11px)"
+        fxFlex.lt-md="0 1 calc(50% - 11px)"
+        fxFlex.lt-sm="100%">
+        <mat-label>RG:</mat-label>
+        <input matInput formControlName="rg" name="rg">
+      </mat-form-field>
+
+        <mat-form-field   
+          fxFlex="0 1 calc(25% - 11px)"
+          fxFlex.lt-md="0 1 calc(50% - 11px)"
+          fxFlex.lt-sm="100%">
+          <mat-label>CPF:</mat-label>
+          <input matInput formControlName="cpf" name="cpf">
+        </mat-form-field>
+
+      <mat-form-field 
+        fxFlex="0 1 calc(25% - 11px)"
+        fxFlex.lt-md="0 1 calc(50% - 11px)"
+        fxFlex.lt-sm="100%">
+        <mat-label>Data de Nasc </mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dt_nascimento" name="dt_nascimento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field 
+        fxFlex="0 1 calc(25% - 11px)"
+        fxFlex.lt-md="0 1 calc(50% - 11px)"
+        fxFlex.lt-sm="100%">        
+        <mat-label >Telefone:</mat-label>
+        <input matInput formControlName="telefone" name="telefone" >   
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+
+  </div>
 
   
-  <mat-form-field  >
-    <mat-label>RG:</mat-label>
-    <input matInput >
-  </mat-form-field>
-
-  <mat-form-field >
-    <mat-label >CPF:</mat-label>
-    <input matInput >
-  </mat-form-field>
-
-  <mat-form-field >
-    <mat-label >Data de Nascimento:</mat-label>
-    <input matInput >
-  </mat-form-field>
   
-  <mat-form-field >
-    <mat-label >Telefone:</mat-label>
-    <input matInput >   
-    <mat-icon matSuffix>phone</mat-icon>
-   
-  </mat-form-field>
+<div fxLayout="row wrap" fxLayoutAlign="space-around center" > 
 
-  <mat-form-field >
-    <mat-select required>
-      <mat-option value="option">Particular</mat-option>
-      <mat-option value="option">Unimed</mat-option>
-      <mat-option value="option">Cassi</mat-option>
-      <mat-option value="option">Geap</mat-option>
-    </mat-select>
+    <mat-form-field 
+      fxFlex="0 1 calc(25% - 11px)"
+      fxFlex.lt-md="0 1 calc(50% - 11px)"
+      fxFlex.lt-sm="100%">
+        <mat-select formControlName="convenio" name="convenio">
+          <mat-option value="option">Particular</mat-option>
+          <mat-option value="option">Unimed</mat-option>
+          <mat-option value="option">Cassi</mat-option>
+          <mat-option value="option">Geap</mat-option>
+        </mat-select>
       <mat-label>Convênio</mat-label>
+
+    </mat-form-field>
+
+    <mat-form-field 
+      fxFlex="0 1 calc(25% - 11px)"
+      fxFlex.lt-md="0 1 calc(50% - 11px)"
+      fxFlex.lt-sm="100%">
+      <mat-label >Num da Carteirinha:</mat-label>
+      <input matInput formControlName="num_carteira" name="num_carteira">
+    </mat-form-field>
+
+    <mat-form-field 
+      fxFlex="0 1 calc(25% - 11px)"
+      fxFlex.lt-md="0 1 calc(50% - 11px)"
+      fxFlex.lt-sm="100%">
+      <mat-label>Endereço:</mat-label>
+      <input matInput formControlName="endereco" name="endereco">
+    </mat-form-field>
+
+  <mat-form-field  
+    fxFlex="0 1 calc(25% - 11px)"
+    fxFlex.lt-md="0 1 calc(50% - 11px)"
+    fxFlex.lt-sm="100%">
+    <mat-label >Ponto de Referência:</mat-label>
+    <input matInput formControlName="ponto_ref" name="ponto_ref">
   </mat-form-field>
 
-  <mat-form-field >
-    <mat-label >Num da Carteirinha:</mat-label>
+</div>
+
+<div fxLayout="row wrap" fxLayoutAlign="space-around center" > 
+    <mat-form-field  fxFlex="100%">
+      <mat-label>Exames:</mat-label>
+      <textarea matInput formControlName="exames" name="exames"></textarea>
+    </mat-form-field>
+</div>
+
+  
+<div fxLayout="row wrap" fxLayoutAlign="space-around center" > 
+
+  <mat-form-field>
+    <mat-label>Data da Coleta </mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dt_coleta" name="dt_coleta">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field  >
+    <mat-label >Previsão:</mat-label>
     <input matInput >
+    <mat-icon matPrefix>alarm</mat-icon>
   </mat-form-field>
-
-  <mat-form-field >
-    <mat-label>Endereço:</mat-label>
-    <input matInput formControlName="nome" name="nome">
-</mat-form-field>
-<mat-form-field >
-  <mat-label >Ponto de Referência:</mat-label>
-  <input matInput >
-</mat-form-field>
-<mat-form-field class="form-full">
-  <mat-label>Exames:</mat-label>
-  <textarea matInput></textarea>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Data da Coleta </mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-
-<mat-form-field appearance="fill" disabled>
-  <mat-label >Previsão:</mat-label>
-  <input matInput >
-  <mat-icon matPrefix>alarm</mat-icon>
-</mat-form-field>
 
 
 <mat-form-field >
   <mat-label>Observações:</mat-label>
-  <textarea matInput></textarea>
+  <input matInput formControlName="obs" name="obs">
 </mat-form-field>
 
 
 
- <mat-form-field appearance="fill">
+ <mat-form-field>
     <mat-label>Valor Total:</mat-label>
-    <input matInput type="number" class="example-right-align">
+    <input matInput type="number" class="example-right-align" formControlName="valor_total" name="valor_total">
     <span matPrefix>R$&nbsp;</span>
     
    <!--  <span matSuffix>.00</span>-->
   </mat-form-field>
   
-    <mat-checkbox >Recebido</mat-checkbox>
+    <mat-checkbox formControlName="recebido" name="recebido">Recebido</mat-checkbox>
   
-
+</div>
 </form>
 </div>
 

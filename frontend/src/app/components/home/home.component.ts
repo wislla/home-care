@@ -8,6 +8,7 @@ import { DialogComponent } from './dialog/dialog.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  panelOpenState = false;
 
   constructor(public dialog: MatDialog) { }
 
@@ -16,8 +17,8 @@ export class HomeComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '70%',
-      height: '85%',
+      width: '85%',
+      height: '90%',
      
     });
 
