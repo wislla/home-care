@@ -26,9 +26,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import{MatSelectModule} from '@angular/material/select'; 
+
+
+import {MatChipsModule} from '@angular/material/chips'; 
 import{MatCheckboxModule} from '@angular/material/checkbox'; 
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import {MatExpansionModule} from '@angular/material/expansion'; 
+import {MatListModule} from '@angular/material/list';
+import { SelectionCollectionComponent } from './components/selection-collection/selection-collection.component'; 
+
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin,
@@ -41,7 +47,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     AppComponent,
     HomeComponent,
     ScheduleComponent,
-    DialogComponent
+    DialogComponent,
+    SelectionCollectionComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +73,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatCheckboxModule,
     MatSidenavModule,
     MatExpansionModule,
+    MatListModule,
+    MatChipsModule,
+    
     
   ],
   providers: [],

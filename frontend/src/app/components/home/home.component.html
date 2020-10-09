@@ -1,25 +1,4 @@
-<mat-drawer-container class="example-container" autosize hasBackdrop="true">
-   <mat-drawer class="example-sidenav" #drawer mode="push">
-   
-      <mat-accordion>
-        
-         <mat-expansion-panel (opened)="panelOpenState = true"
-                              (closed)="panelOpenState = false">
-           <mat-expansion-panel-header>
-             <mat-panel-title>
-               Self aware panel
-             </mat-panel-title>
-            
-           </mat-expansion-panel-header>
-           <p>I'm visible because I am open</p>
-         </mat-expansion-panel>
-       </mat-accordion>
-     
 
-   
-
-   </mat-drawer>
-   <mat-drawer-content>
 
 <mat-toolbar disableClose>
    <button mat-icon-button (click)="drawer.toggle()" class="example-icon">
@@ -34,8 +13,37 @@
     </button>
  
  </mat-toolbar>
- <app-schedule> </app-schedule> 
- <!--
+ <mat-drawer-container class="example-container"  hasBackdrop="false">
+  <mat-drawer  #drawer mode="push">
+  
+     <mat-accordion>
+       
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Self aware panel
+            </mat-panel-title>
+           
+          </mat-expansion-panel-header>
+          <mat-action-list>
+            <button mat-list-item routerLink="selection" routerLinkActive="active"> Selecionar coletas </button>
+            <mat-list-item  routerLink="/" routerLinkActive="active"> Salt </mat-list-item>
+            <mat-list-item> Paprika </mat-list-item>
+           </mat-action-list>
+        
+          
+        </mat-expansion-panel>
+      </mat-accordion>
+    
+
+  
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+ <!--<app-schedule> </app-schedule>
+ 
  <mat-tab-group>
     <mat-tab label="Agendamentos"> <app-schedule> </app-schedule> </mat-tab>
     <mat-tab label="Coletados"> Coletados  </mat-tab>
