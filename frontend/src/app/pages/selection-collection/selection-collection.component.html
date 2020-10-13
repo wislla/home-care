@@ -1,6 +1,9 @@
 <section class="pad">
 <h1> <mat-icon>calendar_today</mat-icon> Coletas Hoje </h1>
-<mat-selection-list #shoes>
+<div fxLayout="row" fxLayoutAlign="start center" > 
+<mat-selection-list #shoes fxFlex="0 1 calc(80% - 11px)"
+fxFlex.lt-md="0 1 calc(50% - 11px)"
+fxFlex.lt-sm="100%">
     
     <mat-list-option disabled selected >
         
@@ -18,7 +21,8 @@
         <div mat-line>Wislla Nuanska</div>
     </mat-list-option>
   </mat-selection-list>
-  <button mat-button>Selecionar</button>
+  </div>
+  <button mat-button><mat-icon>done</mat-icon>Selecionar</button>
 </section>
 
 
