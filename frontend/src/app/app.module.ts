@@ -36,6 +36,7 @@ import {MatListModule} from '@angular/material/list';
 import { SelectionCollectionComponent } from './pages/selection-collection/selection-collection.component';
 import { SelectedComponent } from './pages/selection-collection/selected/selected.component'; 
 import {MatCardModule} from '@angular/material/card'; 
+import { HttpClientModule } from '@angular/common/http';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -54,6 +55,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SelectedComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
