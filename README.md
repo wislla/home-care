@@ -21,8 +21,8 @@ ______________________________________________________________
 <div  id="features"> <h1> Status do Projeto </h1> </div>
 
 :construction: *Em construção...* :construction:
-- [ ] API
-- [ ] Frontend Web
+- [x] API
+- [x] Frontend Web
 - [ ] Aplicativo Mobile
 
 
