@@ -1,5 +1,5 @@
 const Collect = require ('./../models/Collect');
-
+const { Op } = require("sequelize");
 module.exports={
     async store(req, res){
         const {
@@ -42,5 +42,18 @@ module.exports={
     async index (req, res){
         const collect = await Collect.findAll();
         return res.json(collect);
+    },
+    async indexDate (req, res){
+        const date = Date.now();
+        
+        const { count, rows } = await Collect.findAndCountAll({
+            where: {
+                dt_coleta : {
+                [Op.like]: date
+              }
+            },
+            
+          });
+          return res.json(rows);
     }
 }

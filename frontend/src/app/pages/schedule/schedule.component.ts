@@ -42,6 +42,7 @@ export class ScheduleComponent implements OnInit {
       { start: '2018-09-01T12:30:00+XX:XX' }, 
       { start: '2018-09-01T12:30:00' } 
     ],
+    
   };
 
   constructor() { }

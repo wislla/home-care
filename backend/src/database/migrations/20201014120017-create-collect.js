@@ -23,7 +23,7 @@ module.exports = {
         allowNull: true,
       },
       dt_nascimento: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true,
       },
       telefone: {
@@ -51,7 +51,7 @@ module.exports = {
         allowNull: true,
       },
       dt_coleta: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false,
       },
       obs: {
