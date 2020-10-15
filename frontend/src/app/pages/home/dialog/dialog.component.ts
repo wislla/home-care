@@ -8,6 +8,8 @@ import {
 } from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { ServCollectService } from 'src/app/service/collect/serv-collect.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-dialog',
@@ -32,6 +34,7 @@ export class DialogComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private rest: ServCollectService,
     public dialogRef: MatDialogRef<DialogComponent>,
     private _adapter: DateAdapter<any>
     ) { }
@@ -43,7 +46,7 @@ export class DialogComponent implements OnInit {
      nome: ['', Validators.required],
      rg: [''],
      cpf: [''],
-     dt_nascimento: [''],
+     dt_nascimento: ['2020-10-06T07:30:00Z'],
      telefone: ['', Validators.required],
      convenio: [''],
      num_carteira: [''],
@@ -56,9 +59,24 @@ export class DialogComponent implements OnInit {
      recebido: [''],
     })
   }
+  createCollect(){
+    let newDate: moment.Moment = moment.utc(this.form.value.dt_nascimento).local();
+    this.form.value.dt_nascimento = newDate.format("YYYY-MM-DDTHH:mm:ss");
+
+    let newDateC: moment.Moment = moment.utc(this.form.value.dt_coleta).local();
+    this.form.value.dt_coleta = newDateC.format("YYYY-MM-DDTHH:mm:ss");
+    
+    this.rest.postCollect(this.form.value).subscribe(result =>{})
+    console.log("ok");
+    this.dialogRef.close();
+    this,this.form.reset;
+    window.location.reload();
+  }
 
   onNoClick(): void {
+    
     this.dialogRef.close();
+    this,this.form.reset;
   }
 
 }

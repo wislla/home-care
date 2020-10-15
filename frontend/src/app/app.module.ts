@@ -26,7 +26,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import{MatSelectModule} from '@angular/material/select'; 
-
+import {MatProgressBarModule} from '@angular/material/progress-bar'; 
 
 import {MatChipsModule} from '@angular/material/chips'; 
 import{MatCheckboxModule} from '@angular/material/checkbox'; 
@@ -37,6 +37,7 @@ import { SelectionCollectionComponent } from './pages/selection-collection/selec
 import { SelectedComponent } from './pages/selection-collection/selected/selected.component'; 
 import {MatCardModule} from '@angular/material/card'; 
 import { HttpClientModule } from '@angular/common/http';
+import { DataTimePipe } from './pipes/data-time.pipe';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -52,7 +53,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ScheduleComponent,
     DialogComponent,
     SelectionCollectionComponent,
-    SelectedComponent
+    SelectedComponent,
+    DataTimePipe
   ],
   imports: [
     HttpClientModule,
@@ -81,10 +83,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatListModule,
     MatChipsModule,
     MatCardModule,
+    MatProgressBarModule,
     
     
   ],
-  providers: [],
+  providers: [
+    DataTimePipe,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

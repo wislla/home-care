@@ -64,10 +64,10 @@
       fxFlex.lt-md="0 1 calc(50% - 11px)"
       fxFlex.lt-sm="100%">
         <mat-select formControlName="convenio" name="convenio">
-          <mat-option value="option">Particular</mat-option>
-          <mat-option value="option">Unimed</mat-option>
-          <mat-option value="option">Cassi</mat-option>
-          <mat-option value="option">Geap</mat-option>
+          <mat-option value="Particular">Particular</mat-option>
+          <mat-option value="Unimed">Unimed</mat-option>
+          <mat-option value="Cassi">Cassi</mat-option>
+          <mat-option value="Geap">Geap</mat-option>
         </mat-select>
       <mat-label>Convênio</mat-label>
 
@@ -147,7 +147,7 @@
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-raised-button  >
+  <button mat-raised-button (click)="createCollect()" >
     <mat-icon>done</mat-icon>
        Agendar
     </button>

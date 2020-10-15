@@ -1,49 +1,37 @@
+<mat-progress-bar *ngIf="!coll" mode="indeterminate"></mat-progress-bar>
 
-<div fxLayout="row" fxLayoutAlign="space-around center" class="pad"> 
+<div *ngIf="coll" fxLayout="row wrap" fxLayoutAlign="start center" > 
+<ng-container *ngFor="let coleta of collect"  >
+  <section style="padding: 1%;">
 
-<mat-card class="example-card" xFlex="0 1 calc(50% - 11px)"
-fxFlex.lt-md="0 1 calc(50% - 11px)"
-fxFlex.lt-sm="100%">
+  
+<mat-card class="example-card " xFlex="0 1 calc(50% - 11px)"
+fxFlex.lt-md="100%"
+fxFlex.lt-sm="100%" >
 
     <mat-card-header>
         <div mat-card-avatar ><h1>1º</h1></div>
-        <mat-card-title> Rua Jose, 296 | Proximo a XXXXXX</mat-card-title>  
-        <mat-card-subtitle>Previsão: 7h30</mat-card-subtitle>      
+        <mat-card-title> {{coleta.endereco}}  </mat-card-title>  
+        <mat-card-subtitle>{{coleta.ponto_ref}} | Previsão: 7h30</mat-card-subtitle>      
     </mat-card-header>
-    
+   
     <mat-card-content>
       <p>
-        <strong>Wislla Nuânska </strong> | <strong>21/05/1997</strong><br>
-        <strong>Telefone:</strong> 88 992151XXX<br>
-        <strong>Exames:</strong> hemograma, glicose, <br>
-        <strong>Convênio:</strong> Particular | <strong>Valor:</strong> R$ 205,00 | <strong>Recebido: S</strong><br>
-        <strong>Obs.:</strong> XXXXXXXXXXXXXXXXXXXXXXXXX
+        <strong>{{coleta.nome}} </strong> | <strong>{{coleta.dt_nascimento | dataTime}}</strong><br>
+        <strong>Telefone:</strong>{{coleta.telefone}}<br>
+        <strong>Exames:</strong> {{coleta.exames}} <br>
+        <strong>Convênio:</strong> {{coleta.convenio}} | <strong>Valor:</strong> R$ {{coleta.valor_total}} | <strong>Recebido: {{coleta.recebido}}</strong><br>
+        <strong>Obs.:</strong> {{coleta.obs}}
       </p>
     </mat-card-content>
-  
+    <mat-card-actions>
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
   </mat-card>
-
-  <mat-card class="example-card" xFlex="0 1 calc(50% - 11px)"
-fxFlex.lt-md="0 1 calc(50% - 11px)"
-fxFlex.lt-sm="100%">
-
-    <mat-card-header>
-        <div mat-card-avatar ><h1>2º</h1></div>
-        <mat-card-title> Rua Jose, 296 | Proximo a XXXXXX</mat-card-title>  
-        <mat-card-subtitle>Previsão: 7h30</mat-card-subtitle>      
-    </mat-card-header>
-    
-    <mat-card-content>
-      <p>
-        <strong>Wislla Nuânska </strong> | <strong>21/05/1997</strong><br>
-        <strong>Telefone:</strong> 88 992151XXX<br>
-        <strong>Exames:</strong> hemograma, glicose, <br>
-        <strong>Convênio:</strong> Particular | <strong>Valor:</strong> R$ 205,00 | <strong>Recebido: S</strong><br>
-        <strong>Obs.:</strong> XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-    </mat-card-content>
-  
-  </mat-card>
+</section>
+</ng-container>
   
       
 </div>

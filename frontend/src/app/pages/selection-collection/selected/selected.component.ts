@@ -10,7 +10,7 @@ import { ServCollectService } from 'src/app/service/collect/serv-collect.service
 export class SelectedComponent implements OnInit {
  
   collect: Collect[];
-  
+  coll: boolean = false;
   constructor(
     public collectServ: ServCollectService
     ) { }
@@ -24,6 +24,7 @@ export class SelectedComponent implements OnInit {
     
       this.collect = data; 
       console.log(this.collect);
+      this.coll = true;
     })
   }
 }

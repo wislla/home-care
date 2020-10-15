@@ -19,4 +19,8 @@ export class ServCollectService {
   public getCollect(): Observable<Collect[]>{
     return this.httpClient.get<Collect[]>(this.apiURL)
   }
+  public postCollect(collect: any): Observable <Collect>{
+    console.log (collect);
+    return this.httpClient.post<any>(this.apiURL, collect, this.httpOptions)
+  }
 }
