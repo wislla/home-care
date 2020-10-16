@@ -1,1 +1,2 @@
-<full-calendar [options]="calendarOptions" class="pad"></full-calendar>
+<mat-progress-bar *ngIf="!v" mode="indeterminate"></mat-progress-bar>
+<full-calendar *ngIf="v"[options]="calendarOptions" class="pad"></full-calendar>

@@ -13,4 +13,6 @@ export class Collect {
     obs:string;
     valor_total: number;
     recebido: string;
+    ordem: number;
+    previsao: string;
 }

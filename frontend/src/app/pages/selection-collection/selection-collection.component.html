@@ -1,23 +1,23 @@
-<section class="pad">
+<mat-progress-bar *ngIf="!coll" mode="indeterminate"></mat-progress-bar>
+<section *ngIf="coll" class="pad">
 <h1> <mat-icon>calendar_today</mat-icon> Coletas Hoje </h1>
 <div fxLayout="row" fxLayoutAlign="start center" > 
 <mat-selection-list #shoes fxFlex>
+    <ng-container *ngFor="let coleta of colletcT">
+
+   
     
-    <mat-list-option disabled selected >
+    <mat-list-option disabled="false" selected="false" >
         
-        <h1 mat-list-icon>1º</h1>
-        <h4>  Rua José de Araújo Chaves, XXX - Proximo a XXXX </h4>
+        <h1 mat-list-icon>{{coleta.ordem}}º</h1>
+        <h4> {{coleta.endereco}} - {{coleta.ponto_ref}}</h4>
         
-        <div mat-line >Selecionado por: Raimunda</div>
+        <div mat-line >{{coleta.nome}}</div>
     </mat-list-option>
 
-
+</ng-container>
   
-    <mat-list-option >
-        <h1 mat-list-icon>2º</h1>
-        <h4> Rua José de Araújo Chaves, XXX - Proximo a XXXX  </h4>
-        <div mat-line>Wislla Nuanska</div>
-    </mat-list-option>
+  
   </mat-selection-list>
   </div>
   <button mat-button><mat-icon>done</mat-icon>Selecionar</button>

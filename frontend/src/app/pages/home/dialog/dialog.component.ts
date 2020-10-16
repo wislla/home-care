@@ -66,11 +66,14 @@ export class DialogComponent implements OnInit {
     let newDateC: moment.Moment = moment.utc(this.form.value.dt_coleta).local();
     this.form.value.dt_coleta = newDateC.format("YYYY-MM-DDTHH:mm:ss");
     
-    this.rest.postCollect(this.form.value).subscribe(result =>{})
-    console.log("ok");
-    this.dialogRef.close();
-    this,this.form.reset;
-    window.location.reload();
+    this.rest.postCollect(this.form.value).subscribe(result =>{
+      console.log("ok");
+      this.dialogRef.close();
+      this.form.reset;
+      window.location.reload();
+    })
+
+    
   }
 
   onNoClick(): void {
