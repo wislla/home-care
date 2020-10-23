@@ -29,7 +29,9 @@ import * as moment from 'moment';
 })
 export class DialogComponent implements OnInit {
  
-
+  vars: string = "teste";
+  quant: number ;
+  see: boolean = false;
   public form: FormGroup;
 
   constructor(
@@ -42,6 +44,7 @@ export class DialogComponent implements OnInit {
       this._adapter.setLocale('fr');
     }
   ngOnInit(): void {
+    
     this.form = this.fb.group({
      nome: ['', Validators.required],
      rg: [''],
@@ -59,6 +62,25 @@ export class DialogComponent implements OnInit {
      recebido: [''],
     })
   }
+  key(evento: KeyboardEvent){
+    console.log("buscou")
+    
+    this.vars=((<HTMLInputElement>evento.target).value);
+    console.log(this.vars );
+    
+    let x = moment(this.vars, "DD/MM/YYYY");
+    console.log("nova"+x)
+    this.vars = x.format("YYYY-MM-DD");
+    
+
+    this.rest.getCollectByDate(this.vars).subscribe(result =>{
+      
+      console.log(result);
+      this.quant = result;
+      this.see = true;
+    })
+    console.log( this.vars );
+  }
   createCollect(){
     let newDate: moment.Moment = moment.utc(this.form.value.dt_nascimento).local();
     this.form.value.dt_nascimento = newDate.format("YYYY-MM-DDTHH:mm:ss");
@@ -67,7 +89,7 @@ export class DialogComponent implements OnInit {
     this.form.value.dt_coleta = newDateC.format("YYYY-MM-DDTHH:mm:ss");
     
     this.rest.postCollect(this.form.value).subscribe(result =>{
-      console.log("ok");
+      
       this.dialogRef.close();
       this.form.reset;
       window.location.reload();

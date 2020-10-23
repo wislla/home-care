@@ -50,7 +50,7 @@ module.exports={
           return res.json(coletas);
     },
     async indexDate(req, res){
-        const {date} = req.body;
+        const {date} = req.params;
         const { count, rows } = await Collect.findAndCountAll({
             where: {
                 dt_coleta : {

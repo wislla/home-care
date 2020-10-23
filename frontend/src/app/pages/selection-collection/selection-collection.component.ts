@@ -8,6 +8,7 @@ import { CollectTodayServiceService } from 'src/app/service/collect-today/collec
   styleUrls: ['./selection-collection.component.css']
 })
 export class SelectionCollectionComponent implements OnInit {
+  v: any;
   colletcT: Collect[];
   coll: boolean= false;
   constructor(
@@ -16,6 +17,13 @@ export class SelectionCollectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCollectToday();
+  }
+  enviar(pa){
+    pa.forEach(element => {
+      console.log(element.value);
+    });
+    window.location.assign("/selected");
+    
   }
 
   getCollectToday(){

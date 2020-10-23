@@ -19,8 +19,11 @@ export class ServCollectService {
   public getCollect(): Observable<Collect[]>{
     return this.httpClient.get<Collect[]>(this.apiURL)
   }
+  public getCollectByDate(date:any): Observable<number>{
+    return this.httpClient.get<number>(this.apiURL+'Date/'+date);
+  }
   public postCollect(collect: any): Observable <any>{
-    console.log (collect);
-    return this.httpClient.post<any>(this.apiURL, collect, this.httpOptions)
+    
+    return this.httpClient.post<any>(this.apiURL, collect, this.httpOptions);
   }
 }

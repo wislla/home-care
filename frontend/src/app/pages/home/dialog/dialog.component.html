@@ -6,6 +6,35 @@
 <div mat-dialog-content>
 
   <form class="" [formGroup]="form" >
+    <div fxLayout="row wrap" fxLayoutAlign="start center" > 
+      <mat-form-field style="padding: 1%;">
+        <mat-label>Data da Coleta </mat-label>
+        <input matInput [matDatepicker]="picker2" 
+        name= "dt_coleta"
+        formControlName="dt_coleta"
+        (blur)="key($event)"
+        (foucus)="key($event)"
+        >
+        <mat-datepicker-toggle (click)="key($event)" matPrefix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field style="padding: 1%;" *ngIf="see">
+        <mat-label >Total de Coletas neste dia:</mat-label>
+        <input matInput [value] = "quant"  disabled>
+        
+        
+      </mat-form-field>
+      <mat-form-field style="padding: 1%;" >
+        <mat-label>Previsão:</mat-label>
+        <input matInput placeholder="Selecione uma data" 
+        
+        disabled>
+        <mat-icon matPrefix>alarm</mat-icon>
+        
+      </mat-form-field>
+     
+    </div>
 
     <div fxLayout="row" fxLayoutAlign="space-around center" > 
 
@@ -109,23 +138,12 @@
   
 <div fxLayout="row wrap" fxLayoutAlign="space-around center" > 
 
-  <mat-form-field>
-    <mat-label>Data da Coleta </mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="dt_coleta" name="dt_coleta">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field  >
-    <mat-label >Quantas coletas:</mat-label>
-    <input matInput >
-    <mat-icon matPrefix>alarm</mat-icon>
-  </mat-form-field>
+  
 
 
 <mat-form-field >
   <mat-label>Observações:</mat-label>
-  <input matInput formControlName="obs" name="obs">
+  <input matInput formControlName="obs" name="obs" >
 </mat-form-field>
 
 
@@ -146,6 +164,7 @@
 
 
 <div mat-dialog-actions>
+  
   <button mat-button (click)="onNoClick()">Cancelar</button>
   <button mat-raised-button (click)="createCollect()" >
     <mat-icon>done</mat-icon>

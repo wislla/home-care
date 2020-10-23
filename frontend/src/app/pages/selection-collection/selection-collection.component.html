@@ -7,7 +7,7 @@
 
    
     
-    <mat-list-option disabled="false" selected="false" >
+    <mat-list-option disabled="false" selected="false" [value]="coleta.id">
         
         <h1 mat-list-icon>{{coleta.ordem}}º</h1>
         <h4> {{coleta.endereco}} - {{coleta.ponto_ref}}</h4>
@@ -16,11 +16,13 @@
     </mat-list-option>
 
 </ng-container>
-  
+<p>
+  Total de Coletas Selecionadas: {{shoes.selectedOptions.selected.length}}
+</p>
   
   </mat-selection-list>
   </div>
-  <button mat-button><mat-icon>done</mat-icon>Selecionar</button>
+  <button mat-button (click)="enviar(shoes.selectedOptions.selected)"><mat-icon>done</mat-icon>Selecionar</button>
 </section>
 
 

@@ -19,6 +19,11 @@ export class CollectTodayServiceService {
   ) { }
 
   public getCollect(): Observable<Collect[]>{
-    return this.httpClient.get<Collect[]>(this.apiURL)
+    try {
+      return this.httpClient.get<Collect[]>(this.apiURL)
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 }
