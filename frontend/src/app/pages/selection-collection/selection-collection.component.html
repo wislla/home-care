@@ -1,5 +1,5 @@
 <mat-progress-bar *ngIf="!coll" mode="indeterminate"></mat-progress-bar>
-<section *ngIf="coll" class="pad">
+<section *ngIf="coll" class="pad" required>
 <h1> <mat-icon>calendar_today</mat-icon> Coletas Hoje </h1>
 <div fxLayout="row" fxLayoutAlign="start center" > 
 <mat-selection-list #shoes fxFlex>
@@ -7,12 +7,13 @@
 
    
     
-    <mat-list-option disabled="false" selected="false" [value]="coleta.id">
+    <mat-list-option [disabled]="coleta.coletado" [selected]="coleta.coletado" [value]="coleta.id">
         
         <h1 mat-list-icon>{{coleta.ordem}}º</h1>
         <h4> {{coleta.endereco}} - {{coleta.ponto_ref}}</h4>
         
         <div mat-line >{{coleta.nome}}</div>
+        <div *ngIf="coleta.coletado!='false'" mat-line >  <strong>Coletado por: {{coleta.responsavel}}</strong></div>
     </mat-list-option>
 
 </ng-container>

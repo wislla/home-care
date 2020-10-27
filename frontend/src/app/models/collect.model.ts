@@ -15,4 +15,6 @@ export class Collect {
     recebido: string;
     ordem: number;
     previsao: string;
+    coletato: string;
+    responsavel: string;
 }

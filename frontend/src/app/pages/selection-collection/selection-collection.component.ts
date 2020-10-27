@@ -19,10 +19,18 @@ export class SelectionCollectionComponent implements OnInit {
     this.getCollectToday();
   }
   enviar(pa){
+    let dados=[];
     pa.forEach(element => {
       console.log(element.value);
+      dados.push({id:element.value})
+      
     });
-    window.location.assign("/selected");
+    this.collectToday.postCollect(dados).subscribe(resul=>{
+        console.log(resul);
+        window.location.assign("/selected");
+      })
+    
+     
     
   }
 

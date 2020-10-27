@@ -26,4 +26,8 @@ export class CollectTodayServiceService {
     }
     
   }
+  public postCollect(id: any): Observable <any>{
+    
+    return this.httpClient.post<any>('http://localhost:3333/collectDate', id, this.httpOptions);
+  }
 }

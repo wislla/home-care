@@ -10,9 +10,9 @@ fxFlex.lt-md="100%"
 fxFlex.lt-sm="100%" >
 
     <mat-card-header>
-        <div mat-card-avatar ><h1>1º</h1></div>
+        <div mat-card-avatar ><h1>{{coleta.ordem}}º</h1></div>
         <mat-card-title> {{coleta.endereco}}  </mat-card-title>  
-        <mat-card-subtitle>{{coleta.ponto_ref}} | Previsão: 7h30</mat-card-subtitle>      
+        <mat-card-subtitle>{{coleta.ponto_ref}} | Previsão: {{coleta.previsao}}</mat-card-subtitle>      
     </mat-card-header>
    
     <mat-card-content>

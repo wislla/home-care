@@ -60,6 +60,7 @@ export class DialogComponent implements OnInit {
      obs: [''],
      valor_total: [''],
      recebido: [''],
+    
     })
   }
   key(evento: KeyboardEvent){

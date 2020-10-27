@@ -38,7 +38,9 @@ import { SelectedComponent } from './pages/selection-collection/selected/selecte
 import {MatCardModule} from '@angular/material/card'; 
 import { HttpClientModule } from '@angular/common/http';
 import { DataTimePipe } from './pipes/data-time.pipe';
-
+import { CadastroUserComponent } from './pages/cadastro-user/cadastro-user.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { LoginComponent } from './pages/login/login.component'; 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin,
@@ -54,7 +56,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     DialogComponent,
     SelectionCollectionComponent,
     SelectedComponent,
-    DataTimePipe
+    DataTimePipe,
+    CadastroUserComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,
@@ -84,6 +88,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatChipsModule,
     MatCardModule,
     MatProgressBarModule,
+    MatSnackBarModule,
     
     
   ],

@@ -16,11 +16,12 @@ export class SelectedComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+   
     this.getCollect();
   }
 
   getCollect(){
-    this.collectServ.getCollect().subscribe(data=>{
+    this.collectServ.getCollectSelected().subscribe(data=>{
     
       this.collect = data; 
       console.log(this.collect);

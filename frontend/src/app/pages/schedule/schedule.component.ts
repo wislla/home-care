@@ -56,7 +56,7 @@ export class ScheduleComponent implements OnInit {
       this.colet=data;
       this.colet.forEach(c => {
         let element = {
-          
+          //allDay: false,
           title: c.previsao+" - "+c.nome ,
           //url: 'selected', 
           start: c.dt_coleta, 

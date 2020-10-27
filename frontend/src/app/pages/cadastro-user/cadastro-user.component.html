@@ -1,0 +1,29 @@
+<div class="example-container" style="padding: 2%;">
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Nome:</mat-label>
+        <input matInput #message>    
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Usuario:</mat-label>
+        <input matInput  #action>    
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Senha:</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div mat-dialog-actions>        <!--//(click)="createCollect()"-->
+        <button mat-raised-button (click)="openSnackBar(message.value, action.value)" >
+          <mat-icon>done</mat-icon>
+             Cadastrar
+        </button>
+    </div>
+  
+    
+  </div>
+  
