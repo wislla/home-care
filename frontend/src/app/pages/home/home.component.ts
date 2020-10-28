@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
@@ -10,9 +11,11 @@ import { DialogComponent } from './dialog/dialog.component';
 export class HomeComponent implements OnInit {
   panelOpenState = false;
 
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+   
   }
 
   openDialog(): void {

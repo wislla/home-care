@@ -8,7 +8,7 @@
         fxFlex.lt-sm="80%"
         >
             <mat-label>Usuario:</mat-label>
-            <input  matInput  #action>    
+            <input  matInput  #user>    
         </mat-form-field>
     
 </div>
@@ -16,14 +16,16 @@
         <mat-form-field fxFlex="50%"
         fxFlex.lt-sm="80%" >
         <mat-label>Senha:</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" #message>
+        <input matInput [type]="hide ? 'password' : 'text'" #pass>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         </mat-form-field>
+        
 </div>
+<h5 *ngIf="msg" style="color: brown;">Usuário ou senha Inválidos!</h5>
         <div mat-dialog-actions>        <!--//(click)="createCollect()"(click)="openSnackBar(message.value, action.value)" -->
-            <button mat-raised-button >
+            <button mat-raised-button (click)="loginUser(user.value, pass.value)">
             
                 Entrar
             </button>
