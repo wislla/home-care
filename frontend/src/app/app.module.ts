@@ -41,6 +41,8 @@ import { DataTimePipe } from './pipes/data-time.pipe';
 import { CadastroUserComponent } from './pages/cadastro-user/cadastro-user.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoginComponent } from './pages/login/login.component'; 
+import { LoginService } from './service/login/login.service';
+import { AuthGuard } from './guards/auth.guard';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin,
@@ -94,6 +96,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   ],
   providers: [
     DataTimePipe,
+    LoginService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

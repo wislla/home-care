@@ -1,6 +1,6 @@
 
 
-<mat-toolbar disableClose >
+<mat-toolbar disableClose *ngIf="mostrarMenu">
    <button mat-icon-button (click)="drawer.toggle()" class="example-icon">
       <mat-icon>menu</mat-icon>        
    </button>
@@ -27,7 +27,7 @@
            
           </mat-expansion-panel-header>
           <mat-action-list>
-            <mat-list-item  routerLink="/" routerLinkActive="active"> Agenda </mat-list-item>
+            <mat-list-item  routerLink="home" routerLinkActive="active"> Agenda </mat-list-item>
             <button mat-list-item routerLink="selection" routerLinkActive="active"> Selecionar coletas </button>
             
             <mat-list-item routerLink="selected"  > Selecionadas </mat-list-item>

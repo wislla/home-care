@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Collect } from 'src/app/models/collect.model';
 import { CollectTodayServiceService } from 'src/app/service/collect-today/collect-today-service.service';
 
@@ -8,15 +9,19 @@ import { CollectTodayServiceService } from 'src/app/service/collect-today/collec
   styleUrls: ['./selection-collection.component.css']
 })
 export class SelectionCollectionComponent implements OnInit {
+  dateTday : any;
   v: any;
   colletcT: Collect[];
   coll: boolean= false;
+  mostraLista=false;
   constructor(
-    public collectToday: CollectTodayServiceService
+    public collectToday: CollectTodayServiceService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.getCollectToday();
+    this.dateTday =  new Date(Date.now());
   }
   enviar(pa){
     let dados=[];
@@ -27,7 +32,8 @@ export class SelectionCollectionComponent implements OnInit {
     });
     this.collectToday.postCollect(dados).subscribe(resul=>{
         console.log(resul);
-        window.location.assign("/selected");
+        this.router.navigate['/selected']
+       // window.location.assign("/selected");
       })
     
      
@@ -38,6 +44,9 @@ export class SelectionCollectionComponent implements OnInit {
     this.collectToday.getCollect().subscribe(data=>{
       this.colletcT = data;
       this.coll = true;
+      if(this.colletcT.length>0){
+        this.mostraLista = true;
+      }
       
     });
   }

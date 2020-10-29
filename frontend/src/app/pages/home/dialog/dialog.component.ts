@@ -10,6 +10,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { ServCollectService } from 'src/app/service/collect/serv-collect.service';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialog',
@@ -38,7 +39,8 @@ export class DialogComponent implements OnInit {
     private fb: FormBuilder,
     private rest: ServCollectService,
     public dialogRef: MatDialogRef<DialogComponent>,
-    private _adapter: DateAdapter<any>
+    private _adapter: DateAdapter<any>,
+    private router : Router,
     ) { }
     french() {
       this._adapter.setLocale('fr');
@@ -58,8 +60,8 @@ export class DialogComponent implements OnInit {
      exames: [''],
      dt_coleta: ['', Validators.required],
      obs: [''],
-     valor_total: [''],
-     recebido: [''],
+     valor_total: [0],
+     recebido: ['1'],
     
     })
   }
@@ -93,7 +95,8 @@ export class DialogComponent implements OnInit {
       
       this.dialogRef.close();
       this.form.reset;
-      window.location.reload();
+      this.router.navigate['/home']
+     // window.location.reload();
     })
 
     

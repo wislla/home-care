@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { LoginService } from 'src/app/service/login/login.service';
 import { LoginComponent } from '../login/login.component';
 import { DialogComponent } from './dialog/dialog.component';
 
@@ -10,12 +11,18 @@ import { DialogComponent } from './dialog/dialog.component';
 })
 export class HomeComponent implements OnInit {
   panelOpenState = false;
-
-
-  constructor(public dialog: MatDialog) { }
+  s = null;
+  mostrarMenu: boolean = false;
+  constructor(public dialog: MatDialog, private login: LoginService) { }
 
   ngOnInit(): void {
-   
+   this.s=window.localStorage.getItem('nome')
+   console.log(this.s);
+   this.login.mostrarMenuEmitter.subscribe(
+    result =>{
+      this.mostrarMenu = result;
+    }
+  );
   }
 
   openDialog(): void {

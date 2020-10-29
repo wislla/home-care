@@ -1,7 +1,7 @@
 <mat-progress-bar *ngIf="!coll" mode="indeterminate"></mat-progress-bar>
 <section *ngIf="coll" class="pad" required>
-<h1> <mat-icon>calendar_today</mat-icon> Coletas Hoje </h1>
-<div fxLayout="row" fxLayoutAlign="start center" > 
+<h1> <mat-icon>calendar_today</mat-icon> Coletas Hoje {{dateTday | dataTime}}</h1>
+<div fxLayout="row" fxLayoutAlign="start center" *ngIf="mostraLista"> 
 <mat-selection-list #shoes fxFlex>
     <ng-container *ngFor="let coleta of colletcT">
 
@@ -23,7 +23,8 @@
   
   </mat-selection-list>
   </div>
-  <button mat-button (click)="enviar(shoes.selectedOptions.selected)"><mat-icon>done</mat-icon>Selecionar</button>
+  <button *ngIf="mostraLista" mat-button (click)="enviar(shoes.selectedOptions.selected)"><mat-icon>done</mat-icon>Selecionar</button>
+<h3 *ngIf="!mostraLista">Nenhuma coleta para este dia!</h3>
 </section>
 
 
