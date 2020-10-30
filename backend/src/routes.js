@@ -10,7 +10,7 @@ routes.get('/collectToday', CollectController.indexToday);
 routes.get('/collectDate/:date', CollectController.indexDate);
 routes.post('/collectDate', CollectController.updateCollect);
 routes.get('/collect', CollectController.index);//ColetasSelecionadas
-routes.get('/collectSelected', CollectController.ColetasSelecionadas);//ColetasSelecionadas
+routes.get('/collectSelected/:user', CollectController.ColetasSelecionadas);//ColetasSelecionadas
 
 routes.post('/cadastro', UserController.store);
 

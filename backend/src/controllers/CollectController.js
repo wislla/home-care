@@ -18,6 +18,7 @@ function previsao(ordem) {
 module.exports={
     
     async ColetasSelecionadas (req, res){
+        const { user } = req.params;
         const date = Date.now();
         const collect = await Collect.findAll({
             where: {
@@ -26,7 +27,8 @@ module.exports={
               },
               coletado:{
                   [Op.like]: 'true'
-              }
+              },
+              responsavel: user,
 
             },
             order: [
@@ -48,6 +50,7 @@ module.exports={
     async index (req, res){
         
         const collect = await Collect.findAll();
+        
         return res.json(collect);
     },
     async indexToday (req, res){
@@ -80,7 +83,7 @@ module.exports={
      updateCollect (req, res){
         const id = req.body;
         id.forEach(async element => {
-             await Collect.update({ coletado: "true",responsavel:"ngm" }, {
+             await Collect.update({ coletado: "true",responsavel:element.responsavel }, {
                 where: {
                   id: element.id,
                 }
