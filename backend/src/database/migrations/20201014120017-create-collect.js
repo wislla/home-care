@@ -66,6 +66,20 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
+
+      coletado: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      responsavel: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      previsao: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+
       created_at:{
         type: Sequelize.DATE,
         allowNull: false,

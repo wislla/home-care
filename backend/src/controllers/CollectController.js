@@ -4,7 +4,7 @@ const { Op } = require("sequelize");
 function previsao(ordem) {
     if (ordem == 1 || ordem == 2)
         return "7h15 - 7h30"
-    if (ordem == 2 || ordem == 3)
+    if (ordem == 3 || ordem == 4)
         return "7h30 - 8h00"
     if (ordem == 5 || ordem == 6)
         return "8h00 - 8h20"
@@ -17,18 +17,46 @@ function previsao(ordem) {
 }
 module.exports={
     
+    async ColetasSelecionadas (req, res){
+        const date = Date.now();
+        const collect = await Collect.findAll({
+            where: {
+                dt_coleta : {
+                [Op.like]: date
+              },
+              coletado:{
+                  [Op.like]: 'true'
+              }
+
+            },
+            order: [
+                ['createdAt', 'ASC']
+            ],
+        });
+        let coletas =[];
+          let i = 0;
+
+          collect.forEach(coleta => {
+            coleta.dataValues.ordem = i+1;
+            
+            coletas.push(coleta)
+              
+              i++;
+          });
+        return res.json(coletas);
+    },
     async index (req, res){
+        
         const collect = await Collect.findAll();
         return res.json(collect);
     },
-
     async indexToday (req, res){
         const date = Date.now();
         
         const { count, rows } = await Collect.findAndCountAll({
             where: {
                 dt_coleta : {
-                [Op.like]: '2020-10-06'
+                [Op.like]: date
               }
             },
             order: [
@@ -48,6 +76,18 @@ module.exports={
               i++;
           });
           return res.json(coletas);
+    },
+     updateCollect (req, res){
+        const id = req.body;
+        id.forEach(async element => {
+             await Collect.update({ coletado: "true",responsavel:"ngm" }, {
+                where: {
+                  id: element.id,
+                }
+              });
+        });
+        
+          return res.json({"msg": "ok"})
     },
     async indexDate(req, res){
         const {date} = req.params;
@@ -77,6 +117,7 @@ module.exports={
             obs,
             valor_total,
             recebido,
+            
         } = req.body;
 
         const { count } = await Collect.findAndCountAll({
@@ -88,6 +129,7 @@ module.exports={
             
           });
         console.log(count);
+        
         const collect = await Collect.create({
             
             nome,
@@ -104,6 +146,8 @@ module.exports={
             obs,
             valor_total,
             recebido,
+            coletado: 'false',
+            previsao: previsao(count+1),
         });
         
        return res.json(collect);

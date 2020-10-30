@@ -17,6 +17,9 @@ class Collect extends Model{
             obs: DataTypes.STRING,
             valor_total: DataTypes.FLOAT,
             recebido: DataTypes.STRING,
+            coletado: DataTypes.STRING,
+            responsavel: DataTypes.STRING,
+            previsao: DataTypes.STRING,
 
         },{
             tableName: 'collect',
