@@ -1,6 +1,7 @@
 <mat-progress-bar *ngIf="!coll" mode="indeterminate"></mat-progress-bar>
 
 <div *ngIf="coll" fxLayout="row wrap" fxLayoutAlign="start center" > 
+  <h3 *ngIf="msg" style="padding:2%;"> Nenhuma Coleta Selecionada!</h3>
 <ng-container *ngFor="let coleta of collect"  >
   <section style="padding: 1%;">
 

@@ -11,6 +11,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { ServCollectService } from 'src/app/service/collect/serv-collect.service';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dialog',
@@ -41,6 +42,7 @@ export class DialogComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogComponent>,
     private _adapter: DateAdapter<any>,
     private router : Router,
+    private _snackBar: MatSnackBar,
     ) { }
     french() {
       this._adapter.setLocale('fr');
@@ -51,7 +53,7 @@ export class DialogComponent implements OnInit {
      nome: ['', Validators.required],
      rg: [''],
      cpf: [''],
-     dt_nascimento: ['2020-10-06T07:30:00Z'],
+     dt_nascimento: [''],
      telefone: ['', Validators.required],
      convenio: [''],
      num_carteira: [''],
@@ -61,7 +63,7 @@ export class DialogComponent implements OnInit {
      dt_coleta: ['', Validators.required],
      obs: [''],
      valor_total: [0],
-     recebido: ['1'],
+     recebido: [0],
     
     })
   }
@@ -85,21 +87,28 @@ export class DialogComponent implements OnInit {
     console.log( this.vars );
   }
   createCollect(){
-    let newDate: moment.Moment = moment.utc(this.form.value.dt_nascimento).local();
-    this.form.value.dt_nascimento = newDate.format("YYYY-MM-DDTHH:mm:ss");
+    if(this.form.valid){
 
-    let newDateC: moment.Moment = moment.utc(this.form.value.dt_coleta).local();
-    this.form.value.dt_coleta = newDateC.format("YYYY-MM-DDTHH:mm:ss");
-    
-    this.rest.postCollect(this.form.value).subscribe(result =>{
+   
+      let newDate: moment.Moment = moment.utc(this.form.value.dt_nascimento).local();
+      this.form.value.dt_nascimento = newDate.format("YYYY-MM-DDTHH:mm:ss");
+
+      let newDateC: moment.Moment = moment.utc(this.form.value.dt_coleta).local();
+      this.form.value.dt_coleta = newDateC.format("YYYY-MM-DDTHH:mm:ss");
       
-      this.dialogRef.close();
-      this.form.reset;
-      this.router.navigate['/home']
-     // window.location.reload();
-    })
+      this.rest.postCollect(this.form.value).subscribe(result =>{
+        
+        this.dialogRef.close();
+        this.form.reset;
+        //this.router.navigate(['/home']);
+        window.location.reload();
+      })
 
-    
+    }else{
+      this._snackBar.open("Preencha todos os campos obrigatorios!", "OK", {
+        duration: 2000,
+      });
+    }
   }
 
   onNoClick(): void {

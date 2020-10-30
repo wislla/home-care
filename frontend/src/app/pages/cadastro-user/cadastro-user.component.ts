@@ -21,7 +21,7 @@ export class CadastroUserComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    window.localStorage.setItem('id', '1')
+    //window.localStorage.setItem('id', '1')
      //window.localStorage.clear();
      this.form = this.fb.group({
        nome:['', Validators.required],

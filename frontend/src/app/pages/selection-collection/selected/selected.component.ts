@@ -11,6 +11,7 @@ export class SelectedComponent implements OnInit {
  
   collect: Collect[];
   coll: boolean = false;
+  msg: boolean = false;
   constructor(
     public collectServ: ServCollectService
     ) { }
@@ -23,9 +24,10 @@ export class SelectedComponent implements OnInit {
   getCollect(){
     this.collectServ.getCollectSelected().subscribe(data=>{
     
-      this.collect = data; 
-      console.log(this.collect);
+      this.collect = data;      
       this.coll = true;
+      if(data.length ==0) this.msg = true;
+
     })
   }
 }

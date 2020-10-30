@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(public dialog: MatDialog, private login: LoginService) { }
 
   ngOnInit(): void {
-   this.s=window.localStorage.getItem('nome')
-   console.log(this.s);
+    
    this.login.mostrarMenuEmitter.subscribe(
     result =>{
       this.mostrarMenu = result;

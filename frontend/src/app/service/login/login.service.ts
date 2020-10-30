@@ -37,9 +37,8 @@ export class LoginService {
      if(result!=0){
       this.mostrarMenuEmitter.emit( true);
        this.usuarioAuten = true;
-       
-      
-      window.localStorage.setItem('user',user)
+           
+      window.localStorage.setItem('user',user);
       this.router.navigate(['/home']);
       
      }
@@ -53,6 +52,13 @@ export class LoginService {
     
   }
     usuarioEstaAuten(){
-      return this.usuarioAuten;
+      const user = window.localStorage.getItem('user');
+      if(user){
+        this.mostrarMenuEmitter.emit( true);
+        return true;
+      }
+        
+      return false;
+      //return this.usuarioAuten;
     }
 }

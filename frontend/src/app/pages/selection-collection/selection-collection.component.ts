@@ -25,15 +25,16 @@ export class SelectionCollectionComponent implements OnInit {
   }
   enviar(pa){
     let dados=[];
+    let responsavel = window.localStorage.getItem('user'); 
     pa.forEach(element => {
       console.log(element.value);
-      dados.push({id:element.value})
+      dados.push({id:element.value, responsavel});
       
     });
     this.collectToday.postCollect(dados).subscribe(resul=>{
         console.log(resul);
-        this.router.navigate['/selected']
-       // window.location.assign("/selected");
+        //this.router.navigate(['/selected'])
+        window.location.assign("/selected");
       })
     
      

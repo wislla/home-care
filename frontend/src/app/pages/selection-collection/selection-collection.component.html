@@ -1,23 +1,23 @@
 <mat-progress-bar *ngIf="!coll" mode="indeterminate"></mat-progress-bar>
 <section *ngIf="coll" class="pad" required>
-<h1> <mat-icon>calendar_today</mat-icon> Coletas Hoje {{dateTday | dataTime}}</h1>
-<div fxLayout="row" fxLayoutAlign="start center" *ngIf="mostraLista"> 
+<h1> <mat-icon>calendar_today</mat-icon> Coletas Hoje - {{dateTday | dataTime}}</h1>
+<div fxLayout="row" fxLayoutAlign="start center" > 
 <mat-selection-list #shoes fxFlex>
     <ng-container *ngFor="let coleta of colletcT">
 
    
     
-    <mat-list-option [disabled]="coleta.coletado" [selected]="coleta.coletado" [value]="coleta.id">
+    <mat-list-option style="padding: 1.5%;" [disabled]="coleta.coletado" [selected]="!coleta.coletado" [value]="coleta.id">
         
         <h1 mat-list-icon>{{coleta.ordem}}º</h1>
         <h4> {{coleta.endereco}} - {{coleta.ponto_ref}}</h4>
         
-        <div mat-line >{{coleta.nome}}</div>
+        <div mat-line >{{coleta.nome}} | Exames: {{ coleta.exames }}</div>
         <div *ngIf="coleta.coletado!='false'" mat-line >  <strong>Coletado por: {{coleta.responsavel}}</strong></div>
     </mat-list-option>
-
+    <mat-divider></mat-divider>
 </ng-container>
-<p>
+<p style="padding: 2%;">
   Total de Coletas Selecionadas: {{shoes.selectedOptions.selected.length}}
 </p>
   

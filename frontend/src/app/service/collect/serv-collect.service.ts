@@ -20,7 +20,8 @@ export class ServCollectService {
     return this.httpClient.get<Collect[]>(this.apiURL)
   }
   public getCollectSelected(): Observable<Collect[]>{
-    return this.httpClient.get<Collect[]>('http://localhost:3333/collectSelected')
+    const user = window.localStorage.getItem('user')
+    return this.httpClient.get<Collect[]>('http://localhost:3333/collectSelected/'+user);
   }
   public getCollectByDate(date:any): Observable<number>{
     return this.httpClient.get<number>(this.apiURL+'Date/'+date);

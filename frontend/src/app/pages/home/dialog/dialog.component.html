@@ -8,7 +8,7 @@
   <form class="" [formGroup]="form" >
     <div fxLayout="row wrap" fxLayoutAlign="start center" > 
       <mat-form-field style="padding: 1%;">
-        <mat-label>Data da Coleta </mat-label>
+        <mat-label>*Data da Coleta </mat-label>
         <input matInput [matDatepicker]="picker2" 
         name= "dt_coleta"
         formControlName="dt_coleta"
@@ -39,7 +39,7 @@
     <div fxLayout="row" fxLayoutAlign="space-around center" > 
 
       <mat-form-field class="form-full" >
-          <mat-label>Nome:</mat-label>
+          <mat-label>*Nome:</mat-label>
           <input matInput formControlName="nome" name="nome">
       </mat-form-field>
 
@@ -77,7 +77,7 @@
         fxFlex="0 1 calc(25% - 11px)"
         fxFlex.lt-md="0 1 calc(50% - 11px)"
         fxFlex.lt-sm="100%">        
-        <mat-label >Telefone:</mat-label>
+        <mat-label >*Telefone:</mat-label>
         <input matInput formControlName="telefone" name="telefone" >   
         <mat-icon matSuffix>phone</mat-icon>
       </mat-form-field>
@@ -114,7 +114,7 @@
       fxFlex="0 1 calc(25% - 11px)"
       fxFlex.lt-md="0 1 calc(50% - 11px)"
       fxFlex.lt-sm="100%">
-      <mat-label>Endereço:</mat-label>
+      <mat-label>*Endereço:</mat-label>
       <input matInput formControlName="endereco" name="endereco">
     </mat-form-field>
 
@@ -122,7 +122,7 @@
     fxFlex="0 1 calc(25% - 11px)"
     fxFlex.lt-md="0 1 calc(50% - 11px)"
     fxFlex.lt-sm="100%">
-    <mat-label >Ponto de Referência:</mat-label>
+    <mat-label >*Ponto de Referência:</mat-label>
     <input matInput formControlName="ponto_ref" name="ponto_ref">
   </mat-form-field>
 
