@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class LoginService {
   usuarioAuten: boolean = false;
   mostrarMenuEmitter = new EventEmitter <boolean>();
-  apiURL: string = 'http://localhost:3333/';
+  apiURL: string = environment.API;
   httpOptions = {
     headers : new HttpHeaders({
       'Content-Type': 'application/json', 

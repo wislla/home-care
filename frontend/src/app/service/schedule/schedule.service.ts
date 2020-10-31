@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Collect } from 'src/app/models/collect.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScheduleService {
-  apiURL = 'http://localhost:3333/collect';
+  apiURL = `${environment.API}collect`;
 
   constructor(
     private httpClient: HttpClient,
