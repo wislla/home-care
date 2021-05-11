@@ -1,3 +1,11 @@
 .pad{
     padding:4%;
 }
+a{
+    text-decoration: none;
+    display: flex;
+    /* justify-content: flex-end; */
+    width: 100%;
+    padding: 5px 0;
+    color: #ccc;
+}

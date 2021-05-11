@@ -1,3 +1,47 @@
 .pad{
     padding: 3%;
 }
+table{
+    display: none;
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table span{
+    display: flex;
+}
+ td{
+    width: 100%;
+    padding: 10px;
+    cellspacing: 0;
+    border-bottom: 1px solid rgb(56, 55, 55); 
+
+}
+.ordem{
+    width: auto;
+    white-space: nowrap;
+    text-align: center;
+    font-weight: bold;
+}
+button.imp{
+    margin: 20px;
+}
+@media print {
+    
+    button, div, .mat-drawer{ 
+        display: none !important;
+        visibility: hidden;
+    }
+    mat-drawer{
+        visibility: hidden;
+    }
+    section{
+        display: none !important;
+    }
+    table{
+        width: 100%;
+        display: block;
+        
+    }
+   
+}

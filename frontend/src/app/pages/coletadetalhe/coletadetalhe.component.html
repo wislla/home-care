@@ -1,0 +1,83 @@
+<section>
+    <div>
+        <span>
+
+            <p>Data da Coleta</p>
+            <p>{{coletaData.dt_coleta | dataTime}} </p>
+        </span>
+        <span>
+            <p>Previsao</p>
+            <p>{{coletaData.previsao}}</p>
+        </span>
+        <span>
+            <p>Conveio</p>
+            <p>{{coletaData.convenio}}</p>
+        </span>
+        <span>
+            <p>Num. da Carteira</p>
+            <p>{{coletaData.num_carteira}}</p>
+        </span>
+    </div>
+    <div>
+        <span>
+            <p>Nome</p>
+            <p>{{coletaData.nome}}</p>
+
+        </span>
+        <span>
+            <p>Situação</p>
+            <p>{{coletaData.coletado == "false"? "Pendente" : "Coleta Realizada por"}} {{coletaData.responsavel? coletaData.responsavel : ""}}</p>
+
+        </span>
+
+    </div>
+    <div>
+        <span>
+            <p>Endereco</p>
+            <p>{{coletaData.endereco}} | {{coletaData.ponto_ref}}</p>
+
+        </span>
+    </div>
+    <div>
+        <span>
+            <p>Data de Nascimento</p>
+            <p>{{coletaData.dt_nascimento | dataTime}}</p>
+        </span>
+        <span>
+            <p>Telefone</p>
+            <p>{{coletaData.telefone}}</p>
+        </span>
+        <span>
+            <p>RG</p>
+            <p>{{coletaData.rg}}</p>
+        </span>
+        <span>
+            <p>CPF</p>
+            <p>{{coletaData.cpf}}</p>
+        </span>
+  
+    </div>
+
+    <div>
+        <span>
+            <p>Exames:</p>
+            <p>{{coletaData.exames}}</p>
+        </span>
+        <span>
+            <p>Obs.:</p>
+            <p>{{coletaData.obs}}</p>
+        </span>
+        <span>
+            <p>Valor Total:</p>
+            <p>{{coletaData.valor_total}}</p>
+        </span>
+        <span>
+            <p>Recebido: </p>
+            <p>{{(coletaData.recebido)? "SIM" : "NÂO"}}</p>
+        </span>
+       
+    </div>
+
+  
+
+</section>

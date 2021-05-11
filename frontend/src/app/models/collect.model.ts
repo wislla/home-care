@@ -17,4 +17,5 @@ export class Collect {
     previsao: string;
     coletato: string;
     responsavel: string;
+    id: string;
 }

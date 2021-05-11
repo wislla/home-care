@@ -48,11 +48,12 @@ export class ScheduleComponent implements OnInit {
     this.scheduleS.getAllCollect().subscribe(data=>{
 
       this.colet=data;
+      console.log(data[0].id);
       this.colet.forEach(c => {
         let element = {
           //allDay: false,
           title: c.previsao+" - "+c.nome ,
-          //url: 'selected', 
+          url: 'coletadetalhe?coleta='+c.id, 
           start: c.dt_coleta, 
           
           

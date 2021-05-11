@@ -14,8 +14,10 @@
         
         <div mat-line >{{coleta.nome}} | Exames: {{ coleta.exames }}</div>
         <div *ngIf="coleta.coletado!='false'" mat-line >  <strong>Coletado por: {{coleta.responsavel}}</strong></div>
-    </mat-list-option>
-    <mat-divider></mat-divider>
+        <a href="/coletadetalhe?coleta={{coleta.id}}"> Ver mais </a>
+
+      </mat-list-option>
+  
 </ng-container>
 <p style="padding: 2%;">
   Total de Coletas Selecionadas: {{shoes.selectedOptions.selected.length}}

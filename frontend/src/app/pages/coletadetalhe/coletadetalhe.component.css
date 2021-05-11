@@ -1,0 +1,35 @@
+section{
+    width: 100%;
+
+    padding: 20px;
+    font-size: 20px;
+  
+    
+}
+section div{
+       border-bottom: 1px solid #ccc;
+       padding: 20px; 
+}
+section div p:first-child{
+    font-weight: bold;
+    font-size: 12px;
+}
+section div{
+    display: flex;
+
+    gap: 30px;
+
+}
+section div span {
+    display: flex;
+    flex-direction: column;
+  
+
+}
+
+@media (max-width:760px){
+    section div{
+ flex-direction: column;
+    
+    }
+}

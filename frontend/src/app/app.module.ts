@@ -43,6 +43,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoginComponent } from './pages/login/login.component'; 
 import { LoginService } from './service/login/login.service';
 import { AuthGuard } from './guards/auth.guard';
+import { ColetadetalheComponent } from './pages/coletadetalhe/coletadetalhe.component';
 //import { DialogdadosComponent } from './pages/schedule/dialogdados/dialogdados/dialogdados.component';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -62,6 +63,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     DataTimePipe,
     CadastroUserComponent,
     LoginComponent,
+    ColetadetalheComponent,
     //DialogdadosComponent
   ],
   imports: [

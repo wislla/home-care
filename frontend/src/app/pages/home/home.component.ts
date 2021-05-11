@@ -23,6 +23,10 @@ export class HomeComponent implements OnInit {
     }
   );
   }
+  logout(){
+    localStorage.clear();
+    window.location.href = "/login"
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {

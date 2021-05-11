@@ -19,6 +19,7 @@ export class SelectedComponent implements OnInit {
   ngOnInit(): void {
    
     this.getCollect();
+
   }
 
   getCollect(){
@@ -29,5 +30,11 @@ export class SelectedComponent implements OnInit {
       if(data.length ==0) this.msg = true;
 
     })
+  }
+
+   print(){
+    console.log(document.querySelector('div'))
+
+    window.print();
   }
 }

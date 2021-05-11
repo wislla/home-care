@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { CadastroUserComponent } from './pages/cadastro-user/cadastro-user.component';
+import { ColetadetalheComponent } from './pages/coletadetalhe/coletadetalhe.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { SelectedComponent } from './pages/selection-collection/selected/selected.component';
@@ -19,6 +20,9 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   }, //app-selected
   { path: 'selected', component: SelectedComponent,
+  canActivate: [AuthGuard]
+  },
+  { path: 'coletadetalhe', component: ColetadetalheComponent,
   canActivate: [AuthGuard]
   },
   { path: 'cadastro', component: CadastroUserComponent,

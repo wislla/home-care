@@ -7,8 +7,11 @@ import * as moment from 'moment';
 export class DataTimePipe implements PipeTransform {
 
   transform(date: string): string {
-    let dateOut: moment.Moment = moment(date, "YYYY-MM-DDTHH:mm:ss");
-    return dateOut.format("DD/MM/YYYY");
+    if(date !="0000-00-00"){
+      let dateOut: moment.Moment = moment(date, "YYYY-MM-DDTHH:mm:ss");
+      return dateOut.format("DD/MM/YYYY");
+    }
+    return "Não informado";
   }
 
 }
