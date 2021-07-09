@@ -23,6 +23,7 @@ export class ColetadetalheComponent implements OnInit {
     this.getCollect.getCollectDetalhe(this.coleta).subscribe(
       res =>{
         this.coletaData = res[0];
+        this.coletaData.isolamento = this.coletaData.isolamento? 'Em isolamento' : 'Nenhum';
         console.log(res);
       }
     );

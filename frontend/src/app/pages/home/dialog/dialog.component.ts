@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import {
@@ -30,12 +30,32 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   ],
 })
 export class DialogComponent implements OnInit {
- 
+  @ViewChild("dt_coleta") dt_coletaRef: ElementRef;
+  @ViewChild("previsao") previsaoRef: ElementRef;
+  previsaoV : any;
   vars: string = "teste";
   quant: number ;
   see: boolean = false;
-  public form: FormGroup;
 
+  quantH: number ;
+  seeH: boolean = false;
+
+   order(previsao) {
+    if (previsao == '07h10 - 8h')
+        return "1"
+        if (previsao == '08h10 - 9h')
+        return "2"
+        if (previsao == '10h - 11h')
+        return "3"
+        if (previsao == '11h - 12h')
+        return "4"
+        if (previsao == '14h30 - 16h')
+        return "5"
+  }
+  
+
+  public form: FormGroup;
+  seleted = '7h10 - 8h';
   constructor(
     private fb: FormBuilder,
     private rest: ServCollectService,
@@ -58,19 +78,33 @@ export class DialogComponent implements OnInit {
      convenio: [''],
      num_carteira: [''],
      endereco: ['', Validators.required],
+     previsao: [''],
      ponto_ref: ['', Validators.required],
      exames: [''],
      dt_coleta: ['', Validators.required],
      obs: [''],
      valor_total: [0],
      recebido: [0],
-    
+     isolamento: [0],
     })
   }
-  key(evento: KeyboardEvent){
-    console.log("buscou")
+
+  foods = [
+    {value: '7h10 - 8h', viewValue: '7h10 - 8h'},
+    {value: '8h10 - 9h', viewValue: '8h10 - 9h'},
+    {value: '10h - 11h', viewValue: '10h - 11h'},
+    {value: '11h - 12h', viewValue: '11h - 12h'},
+    {value: '14h30 - 16h', viewValue: '14h30 - 16h'}
+
+  ];
+  getHorario(){
+    this.previsaoV = +this;
+    console.log(this.previsaoRef['_value']);
+
+  }
+  key(){
     
-    this.vars=((<HTMLInputElement>evento.target).value);
+    this.vars=(this.dt_coletaRef.nativeElement.value);
     console.log(this.vars );
     
     let x = moment(this.vars, "DD/MM/YYYY");
@@ -86,6 +120,27 @@ export class DialogComponent implements OnInit {
     })
     console.log( this.vars );
   }
+
+  verificarHorario(){
+
+    let x = moment(this.dt_coletaRef.nativeElement.value, "DD/MM/YYYY");
+    console.log("nova"+x)
+    var dtC = x.format("YYYY-MM-DD");
+
+    var data = dtC;
+    var hora = this.order(this.previsaoRef['_value']);
+   console.log( this.previsaoRef);
+    this.rest.getCollectByHour(data, hora).subscribe(result =>{
+      console.log('neste h' + result);
+      this.key();
+      this.quantH = result ;
+      this.seeH = true;
+    })
+  }
+
+  
+
+  
   createCollect(){
     if(this.form.valid){
 
@@ -97,11 +152,11 @@ export class DialogComponent implements OnInit {
       this.form.value.dt_coleta = newDateC.format("YYYY-MM-DDTHH:mm:ss");
       
       this.rest.postCollect(this.form.value).subscribe(result =>{
-        
+        console.log(this.form.value);
         this.dialogRef.close();
         this.form.reset;
         //this.router.navigate(['/home']);
-        window.location.reload();
+       window.location.reload();
       })
 
     }else{
@@ -116,5 +171,6 @@ export class DialogComponent implements OnInit {
     this.dialogRef.close();
     this,this.form.reset;
   }
+  
 
 }

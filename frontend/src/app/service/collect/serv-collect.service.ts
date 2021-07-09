@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ServCollectService {
   apiURL = environment.API+'collect';
+  apiURLBase = environment.API;
   httpOptions = {
     headers : new HttpHeaders({
       'Content-Type': 'application/json', 
@@ -32,6 +33,12 @@ export class ServCollectService {
   public getCollectByDate(date:any): Observable<number>{
     return this.httpClient.get<number>(this.apiURL+'Date/'+date);
   }
+
+  public getCollectByHour(date:any, hour: any): Observable<number>{
+    return this.httpClient.get<number>(environment.API+'collect-hour/'+date+'/'+hour);
+  }
+
+
   public postCollect(collect: any): Observable <any>{
     
     return this.httpClient.post<any>(this.apiURL, collect, this.httpOptions);

@@ -11,19 +11,39 @@
         <mat-label>*Data da Coleta </mat-label>
         <input matInput [matDatepicker]="picker2" 
         name= "dt_coleta"
+        id='dt_coleta'
         formControlName="dt_coleta"
-        (blur)="key($event)"
-        (foucus)="key($event)"
+        #dt_coleta
         >
-        <mat-datepicker-toggle (click)="key($event)" matPrefix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker-toggle (click)="key()" matPrefix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
 
+      <mat-form-field>
+        <mat-select placeholder="Horário" (ngModelChange)="verificarHorario()" #previsao  formControlName="previsao" name="previsao">
+        
+          <mat-option value="07h10 - 8h">7h10 - 8h</mat-option>
+          <mat-option value="08h10 - 9h">8h10 - 9h</mat-option>
+          <mat-option value="10h - 11h">10h - 11h</mat-option>
+          <mat-option value="11h - 12h">11h - 12h</mat-option>
+          <mat-option value="14h30 - 16h">14h30 - 16h</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+  <button mat-button (click)="verificarHorario()">
+    VERIFICAR
+    <mat-icon>search</mat-icon>
+  </button>
+
+
       <mat-form-field style="padding: 1%;" *ngIf="see">
-        <mat-label >Total de Coletas neste dia:</mat-label>
+        <mat-label >COLETAS NESTE DIA:</mat-label>
         <input matInput [value] = "quant"  disabled>
-        
-        
+      </mat-form-field>
+
+      <mat-form-field style="padding: 1%;" *ngIf="seeH">
+        <mat-label >COLETAS NESTE HORÁRIO:</mat-label>
+        <input matInput [value] = "quantH"  disabled>
       </mat-form-field>
       <!-- <mat-form-field style="padding: 1%;" >
         <mat-label>Previsão:</mat-label>
@@ -139,6 +159,7 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-around center" > 
 
   
+  <mat-checkbox formControlName="isolamento" name="isolamento">Em isolamento</mat-checkbox>
 
 
 <mat-form-field >

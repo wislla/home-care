@@ -21,6 +21,7 @@ fxFlex.lt-sm="100%" >
    
     <mat-card-content>
       <p>
+        <strong>{{coleta.isolamento ? 'Em isolamento' : ''}}</strong><br>
         <strong>{{coleta.nome}} </strong> | <strong>{{coleta.dt_nascimento | dataTime}}</strong><br>
         <strong>Telefone:</strong>{{coleta.telefone}}<br>
         <strong>Exames:</strong> {{coleta.exames}} <br>
@@ -63,12 +64,17 @@ fxFlex.lt-sm="100%" >
     </td>
     <td>
       <span>
+        {{coleta.isolamento ? 'Em isolamento' : ''}}
+      </span>
+      <span>
         Endereco: 
         {{coleta.endereco}} | Pronto de Ref. {{coleta.ponto_ref}} | 
         Tel:
         {{coleta.telefone}}
       </span>
+      
       <span>
+        
         Nome:
         {{coleta.nome}} |
         Dt. Nasc:
@@ -81,9 +87,9 @@ fxFlex.lt-sm="100%" >
         {{coleta.exames}}
       </span>
       <span>
-        <strong>Valor: </strong> R$ {{coleta.valor_total}} <br> 
-        <strong>Recebido: {{coleta.recebido}} </strong><br> 
-        <strong>Obs.: </strong> {{coleta.obs}}
+        Valor: R$ {{coleta.valor_total }}  - 
+        {{coleta.recebido? 'Recebido' : ''}} - 
+        Obs.: {{coleta.obs}} 
       </span>
 
     </td>

@@ -9,7 +9,7 @@
     
     <mat-list-option style="padding: 1.5%;" [disabled]="coleta.coletado" [selected]="!coleta.coletado" [value]="coleta.id">
         
-        <h1 mat-list-icon>{{coleta.ordem}}º</h1>
+        <h1 mat-list-icon>{{coleta.previsao}}</h1>
         <h4> {{coleta.endereco}} - {{coleta.ponto_ref}}</h4>
         
         <div mat-line >{{coleta.nome}} | Exames: {{ coleta.exames }}</div>

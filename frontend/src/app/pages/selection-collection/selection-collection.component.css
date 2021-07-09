@@ -9,3 +9,7 @@ a{
     padding: 5px 0;
     color: #ccc;
 }
+
+.mat-list-icon {
+    width: 150px !important;
+}
